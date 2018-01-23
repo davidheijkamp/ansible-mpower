@@ -1,3 +1,10 @@
-# Induce an exception to see what happens
-- ping:
-    data: crash
+---
+- hosts: local
+  vars:
+    http_port: 80
+    max_clients: 200
+  remote_user: root
+  tasks:
+  - name: do a ping
+    ping:
+      data: crash
